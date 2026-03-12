@@ -22,7 +22,12 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key')
 
-    CORS(app, origins=['http://localhost:3000', 'http://localhost:5173'])
+    CORS(app, origins=[
+        'http://localhost:3000',
+        'http://localhost:5173',
+        'https://aro-veda-x.web.app',
+        'https://aro-veda-x.firebaseapp.com',
+    ])
     db.init_app(app)
 
     app.register_blueprint(patient_bp)

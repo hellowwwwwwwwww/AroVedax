@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useApp } from '../../context/AppContext';
 
-const API = axios.create({ baseURL: 'http://localhost:5000/api' });
+const API = axios.create({ baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api' });
 
 const QUICK_CHIPS = [
   { label: '📅 Book appointment',     msg: 'How do I book an appointment?' },
